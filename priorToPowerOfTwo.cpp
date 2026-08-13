@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+void processCollatz(unsigned long long n) {
+    int steps = 0;
+    cout << "N = " << n << ": ";
+    while(n > 1) {
+        if(n % 2 == 0) {
+            n = n / 2;
+        } else {
+            n = 3 * n + 1;
+        }
+        if(steps > 0) {
+            cout << ", ";
+        }
+        cout << n;
+        steps++;
+    }
+    cout << "\nSteps: " << steps << "\n\n";
+}
+int main() {
+    int numPowers;
+    cout << "Enter the number of powers (2^k - 1) to calculate: ";
+    cin >> numPowers;
+    if(numPowers <= 0) {
+        cout << "Please enter a positive integer." << endl;
+        return 1;
+    }
+    //Limit to avoid overflow
+    if(numPowers > 63) {
+        cout << "Warning: Maximum supported power with unsigned long long is 63." << endl;
+        return 1;
+    }
+    for(int k = 1; k <= numPowers; k++) {
+        unsigned long long value = (1ULL << k) - 1;
+        cout << "=== Power 2^" << k << " - 1 ===" << endl;
+        processCollatz(value);
+    }
+    return 0;
+}
