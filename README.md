@@ -18,3 +18,5 @@ Enter a number to see the steps it takes to reach 1! The number will go through 
 1. Show the proccess of the number selected until it reaches 1 by the 3x+1 algorithm.
 2. In addition, you can discover how this algorithm works specifically in priors to the powers of two (2^k-1).
 3. Count the total amount of steps during the proccess!
+4. Find out the number of stepts required to drop below the number typed!
+5. Discover the maximum height reached in the sequence!
