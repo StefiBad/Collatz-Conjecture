@@ -4,12 +4,16 @@ void processCollatz(unsigned long long n){
     int steps = 0;
     int stepsBelowN = -1;
     const unsigned long long initialValue = n;
+    unsigned long long maxHeight = n;
     cout << "N = " << n << ": ";
     while(n > 1){
         if(n % 2 == 0){
             n = n / 2;
         }else{
             n = 3 * n + 1;
+        }
+        if(n > maxHeight){
+            maxHeight = n;
         }
         if(steps > 0){
             cout << ", ";
@@ -22,10 +26,11 @@ void processCollatz(unsigned long long n){
     }
     cout << "\nSteps: " << steps << endl;
     if(stepsBelowN != -1){
-        cout << "Steps to drop below N: " << stepsBelowN << "\n\n";
+        cout << "Steps to drop below N: " << stepsBelowN << endl;
     }else{
-        cout << "Steps to drop below N: N/A\n\n";
+        cout << "Steps to drop below N: N/A" << endl;
     }
+    cout << "Maximum height reached: " << maxHeight << "\n\n";
 }
 int main(){
     int numPowers;

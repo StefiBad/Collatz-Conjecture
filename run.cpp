@@ -3,15 +3,15 @@ using namespace std;
 int main(){
     long long int n;
     int steps = 0;
-    int stepsBelow = -1;
-    bool foundBelow = false;
+    int stepsBelowN = -1;
     cout << "Enter a number: ";
     cin >> n;
     if(n <= 0){
         cout << "Please enter a positive integer." << endl;
         return 1;
     }
-    long long int initialN = n;
+    const long long int initialN = n;
+    long long int maxHeight = n;
     cout << n << ": ";
     while(n > 1){
         if(n % 2 == 0){
@@ -20,22 +20,25 @@ int main(){
         else{
             n = 3 * n + 1;
         }
+        if(n > maxHeight){
+            maxHeight = n;
+        }
         if(steps > 0){
             cout << ", ";
         }
         cout << n;
         steps++;
-        if(!foundBelow && n < initialN){
-            stepsBelow = steps;
-            foundBelow = true;
+        if(stepsBelowN == -1 && n < initialN){
+            stepsBelowN = steps;
         }
     }
     cout << "\n";
     cout << "Number of steps: " << steps << endl;
-    if(foundBelow){
-        cout << "Steps to drop below initial n: " << stepsBelow << endl;
+    if(stepsBelowN != -1){
+        cout << "Steps to drop below N: " << stepsBelowN << endl;
     }else{
-        cout << "Steps to drop below initial n: N/A (initial n <= 1)" << endl;
+        cout << "Steps to drop below N: N/A" << endl;
     }
+    cout << "Maximum height reached: " << maxHeight << endl;
     return 0;
 }
