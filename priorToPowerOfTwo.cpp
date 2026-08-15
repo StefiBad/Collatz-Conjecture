@@ -1,36 +1,45 @@
 #include <iostream>
 using namespace std;
-void processCollatz(unsigned long long n) {
+void processCollatz(unsigned long long n){
     int steps = 0;
+    int stepsBelowN = -1;
+    const unsigned long long initialValue = n;
     cout << "N = " << n << ": ";
-    while(n > 1) {
-        if(n % 2 == 0) {
+    while(n > 1){
+        if(n % 2 == 0){
             n = n / 2;
-        } else {
+        }else{
             n = 3 * n + 1;
         }
-        if(steps > 0) {
+        if(steps > 0){
             cout << ", ";
         }
         cout << n;
         steps++;
+        if(stepsBelowN == -1 && n < initialValue){
+            stepsBelowN = steps;
+        }
     }
-    cout << "\nSteps: " << steps << "\n\n";
+    cout << "\nSteps: " << steps << endl;
+    if(stepsBelowN != -1){
+        cout << "Steps to drop below N: " << stepsBelowN << "\n\n";
+    }else{
+        cout << "Steps to drop below N: N/A\n\n";
+    }
 }
-int main() {
+int main(){
     int numPowers;
     cout << "Enter the number of powers (2^k - 1) to calculate: ";
     cin >> numPowers;
-    if(numPowers <= 0) {
+    if(numPowers <= 0){
         cout << "Please enter a positive integer." << endl;
         return 1;
     }
-    //Limit to avoid overflow
-    if(numPowers > 63) {
+    if(numPowers > 63){
         cout << "Warning: Maximum supported power with unsigned long long is 63." << endl;
         return 1;
     }
-    for(int k = 1; k <= numPowers; k++) {
+    for(int k = 1; k <= numPowers; k++){
         unsigned long long value = (1ULL << k) - 1;
         cout << "=== Power 2^" << k << " - 1 ===" << endl;
         processCollatz(value);
