@@ -35,9 +35,9 @@ int main(){
     cout << "\n";
     cout << "Number of steps: " << steps << endl;
     if(stepsBelowN != -1){
-        cout << "Steps to drop below N: " << stepsBelowN << endl;
+        cout << "Steps to drop below " << initialN << ": " << stepsBelowN << endl;
     }else{
-        cout << "Steps to drop below N: N/A" << endl;
+        cout << "Steps to drop below " << initialN << ": N/A" << endl;
     }
     cout << "Maximum height reached: " << maxHeight << endl;
     return 0;
