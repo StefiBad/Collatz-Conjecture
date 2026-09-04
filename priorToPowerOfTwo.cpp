@@ -26,9 +26,9 @@ void processCollatz(unsigned long long n){
     }
     cout << "\nSteps: " << steps << endl;
     if(stepsBelowN != -1){
-        cout << "Steps to drop below N: " << stepsBelowN << endl;
+        cout << "Steps to drop below " << initialValue << ": " << stepsBelowN << endl;
     }else{
-        cout << "Steps to drop below N: N/A" << endl;
+        cout << "Steps to drop below " << initialValue << ": N/A" << endl;
     }
     cout << "Maximum height reached: " << maxHeight << "\n\n";
 }
