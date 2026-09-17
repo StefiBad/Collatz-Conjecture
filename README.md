@@ -25,3 +25,6 @@ Enter a number to see the steps it takes to reach 1! The number will go through 
 3. Count the total amount of steps during the proccess!
 4. Furthermore, you can observe this process in reverse order.
 5. Find out which power of two appears first in each sequence.
+
+## Extra
+- The Linux OS is recommended to carry out the download of this repository, but WSL environment is more viable is case of using Windows.
